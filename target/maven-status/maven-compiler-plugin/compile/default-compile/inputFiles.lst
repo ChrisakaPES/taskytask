@@ -1,6 +1,1 @@
-/home/java/dev/git/pro280/taskytask/src/main/java/edu/neumont/spring/config/PersistenceConfig.java
-/home/java/dev/git/pro280/taskytask/src/main/java/edu/neumont/spring/config/WebConfiguration.java
-/home/java/dev/git/pro280/taskytask/src/main/java/edu/neumont/spring/config/MyWebApplicationInitializer.java
-/home/java/dev/git/pro280/taskytask/src/main/java/edu/neumont/java/example/Calculator.java
-/home/java/dev/git/pro280/taskytask/src/main/java/edu/neumont/spring/config/SecurityWebApplicationInitializer.java
-/home/java/dev/git/pro280/taskytask/src/main/java/edu/neumont/spring/config/SecurityConfig.java
+/home/java/dev/git/pro280/taskytask/src/main/java/edu/neumont/servlets/UserServlet.java
