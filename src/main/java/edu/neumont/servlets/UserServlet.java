@@ -27,7 +27,7 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("WEB-INF/index.jsp");
+		request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
 	}
 
 	/**
