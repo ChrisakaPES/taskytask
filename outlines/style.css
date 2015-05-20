@@ -1,0 +1,72 @@
+body {
+	background-image: url("assets/background.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.loginPopup {
+	background-image: url("assets/loginPop.png");
+	background-position: center center;
+	background-repeat:  no-repeat;
+	background-size: 100%;
+	width: 700px;
+	height: 500px;
+	margin: 0 auto;
+	margin-top: 200px;
+}
+.popupForm {
+	color: white;
+	font-family: helvetica;
+	font-size: 30pt;
+	width: 700;
+	height: 500;
+	margin: 0;
+	padding: 0;
+}
+.userBox, .passBox {
+	width: 300px;
+	height: 40px;
+	margin: 0 auto;
+	font-size: 30px;
+	outline-color: blue;
+}
+h3 {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	padding-top: 100px;
+}
+h4 {
+	margin: 0;
+	padding: 0;
+	width: 100px;
+	text-align: center;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+.userInfo {
+	display: flex;
+	flex-direction: column;
+	width: 600px;
+	height: 100px;
+	margin: 0 auto;
+}
+.username {
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+.username, .password {
+	display: flex;
+	flex-direction: row;
+	z-index: 10;
+}
+.submit {
+	width: 120px;
+	height: 50px;
+	font-size: 30px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 70px;
+	margin-left: 295px;
+}
