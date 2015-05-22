@@ -6,13 +6,13 @@
 
 <head>
     <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/dashStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="/taskytask/styles/dashStyle.css"/>
 </head>
 <body>
     <div id="main">
         <nav class="sidebar">
             <section class="userImage">
-                <img class="userPic" src="/assets/defaultPic.png">
+                <img class="userPic" src="/taskytask/resources/defaultPic.png"/>
             </section>
             <section class="userInfo">
                 <p class="username"><a href="#">Username</a></p>
@@ -20,14 +20,14 @@
         </nav>
         <section class="topBar">
             <div class="slateOptions">
-                <p><a onclick="div_show()">Add New Slate</a></p>
+                <p><a href="#" onclick="div_show()">Add New Slate</a></p>
                 <p><a href="#">Edit Slate</a></p>
                 <p><a href="#">Delete Slate</a></p>
             </div>
         </section>
         <!-- Attempt at hidden form may need to be moved. -->
-        <section id="backgroundSection">
-	        <section id="hiddenFormSection" onload="div_hide()">
+        <section id="backgroundSection" class="backSection">
+	        <section class="slateCreationForm" id="hiddenFormSection" onload="div_hide()">
 					<form action="create" id="slateCreationForm" method="post" name="form">
 						<img id="close" src="#" onclick ="div_hide()">
 						<h2>Create new slate</h2>
@@ -51,6 +51,6 @@
 	    </section>
 	    
     </div>
-    <script src="${pageContext.request.contextPath}/scripts/dashboard.js" type="text/javascript"></script>
+    <script src="/taskytask/scripts/dashboard.js" type="text/javascript"></script>
 </body>
 </html>
