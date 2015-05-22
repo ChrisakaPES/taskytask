@@ -1,0 +1,180 @@
+body {
+	background-color: #C3C3C3;
+	color: white;
+	font-family: monospace;
+}
+
+a:link, a:visited {
+	color: white;
+}
+a:hover {
+	color: #D87133;
+}
+a:active {
+	color: #94400D;
+}
+form {
+	max-width:300px;
+	min-width:250px;
+	padding:10px 50px;
+	border:2px solid gray;
+	border-radius:10px;
+	font-family:raleway;
+	background-color:#C3C3C3;
+}
+img#close {
+	position:absolute;
+	right:-14px;
+	top:-14px;
+	cursor:pointer
+}
+section#hiddenFormSection {
+	position:absolute;
+	left:50%;
+	top:17%;
+	margin-left:-202px;
+	font-family:'Raleway',sans-serif
+}
+
+.sidebar {
+	background-color: #111b25;
+	left: 0;
+	top: 0;
+	width: 300px;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	border-right: 10px solid #d87133;
+	text-align: center;
+	z-index: 10;
+}
+.topBar {
+	position: fixed;
+	width: 1540px;
+	height: 100px;
+	margin-left: 330px;
+	top: 0;
+	right: 0;
+	background-color: #111b25;
+	border-bottom: 10px solid #d87133;
+	z-index: 5;
+}
+.slateOptions {
+	display: flex;
+	flex-direction: row;
+	position: inherit;
+	width: 700px;
+	height: auto;
+	right: 150;
+	margin-top: 15px;
+	margin-right: 12%;
+	text-align: center;
+}
+.slateOptions p {
+	margin-left: 50px;
+	margin-right: 50px;
+	font-size: 20px;
+}
+.slateWrapper{
+	background-color:#d87133;
+	height:150px;
+	width: 75%;
+}
+.userImage {
+	width: 200px;
+	height: 150px;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 50px;
+	background-color: gray;
+}
+.userPic {
+	width: inherit;
+}
+.username {
+	font-size: 30px;
+	text-decoration: underline;
+}
+
+.slateSection {
+	background-color: #111b25;
+	/*width: 1480px;*/
+	width: 75%;
+	height: 800px;
+	margin: 0 auto;
+	margin-top: 160px;
+	margin-left: 21%;
+	margin-right: 50px;
+	border-radius: 20px;
+}
+.slateName {
+	text-align: center;
+	font-size: 26px;
+	padding-top: 40px;
+	text-align: center;
+}
+
+#backgroundSection{
+	background-color:#313131;
+	display:none;
+	height:100%;
+	left:0;
+	opacity:.95;
+	overflow:auto;
+	position:fixed;
+	top:0;
+	width:100%;
+}
+
+@media (max-width: 1500px) {
+
+	.slateOptions {
+		margin-right: -2%
+	}
+	.slateSection {
+		width: 60%;
+		margin-left: 35%
+	}
+	
+}
+
+@media (max-width: 1300px) {
+	
+	.slateOptions {
+		margin-right: -10%;
+	}
+	.slateSection {
+		margin-left: 37%;
+	}
+}
+
+@media (max-width: 1050px) {
+	
+	.topBar {
+		width: 750px;
+	}
+	.slateOptions {
+		width: 600px;
+		right: 0;
+		margin-top: 5px;
+		margin-right: 0;
+	}
+	.slateSection {
+		/*margin-left: 37%;*/
+	}
+
+}
+
+
+	
+
+
+
+
+
+
+
+
+
+
