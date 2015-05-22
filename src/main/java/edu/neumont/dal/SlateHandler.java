@@ -1,18 +1,32 @@
 package edu.neumont.dal;
 
-import java.time.LocalDateTime; 
+import java.net.URISyntaxException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
 import edu.neumont.models.Slate;
-public class SlateHandler implements SlateDAL 
+public class SlateHandler 
 { 
 	private Map<Integer,Slate> slateMap = new HashMap<Integer,Slate>();
 	private int nextSlateID = 1;
+	private Connection connection;
+	public SlateHandler() {
+		try {
+			connection = DbConnection.accessDB();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * @see edu.neumont.dal.SlateDAL#createSlate(String, String, LocalDateTime)
 	 */
-	@Override
 	public boolean createSlate(String name, String description, LocalDateTime dueDate) 
 	{ 
 		Slate newSlate = new Slate(name,description, dueDate);
@@ -25,27 +39,27 @@ public class SlateHandler implements SlateDAL
 	/* (non-Javadoc)
 	 * @see edu.neumont.dal.SlateDAL#retrieveSlate(int)
 	 */
-	@Override
 	public Slate retrieveSlate(int index) 
 	{ 
-		Slate retrievingSlate = slateMap.get(index);
-		if(retrievingSlate == null)
-		{
-			retrievingSlate = new Slate("Non Existant Slate",
-					"This slate was created in order to demonstrate the creation of new slates with actual data",LocalDateTime.now());
-		}
+//		Statement stm = connection.createStatement();
+//		ResultSet set = stm.executeQuery("Select * from slates Where slate_id = " + index);
+		Slate retrievingSlate = new Slate();
+//		if(retrievingSlate == null)
+//		{
+//			
+//			retrievingSlate = new Slate("Non Existant Slate",
+//					"This slate was created in order to demonstrate the creation of new slates with actual data",LocalDateTime.now());
+//		}
 		return retrievingSlate;
 	} 
 	
 	/* (non-Javadoc)
 	 * @see edu.neumont.dal.SlateDAL#updateSlate(int, edu.neumont.models.Slate)
 	 */
-	@Override
 	public void updateSlate(int index, Slate updatedSlate) 
 	{ 
 		slateMap.replace(index, updatedSlate);
 	} 
-	@Override
 	public void deleteSlate(int index) 
 	{ 
 		slateMap.remove(index);
