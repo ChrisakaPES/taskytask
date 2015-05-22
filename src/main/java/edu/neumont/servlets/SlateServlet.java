@@ -62,6 +62,7 @@ public class SlateServlet extends HttpServlet {
 				dvm.addSlate(sh.retrieveSlate(4));
 				//=============end dummy data code=================
 				request.setAttribute("model",dvm);
+				request.setAttribute("context", contextPath);
 				request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request,response);
 			}
 		}catch(Exception e)
