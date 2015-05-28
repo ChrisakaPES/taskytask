@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+  version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+  <persistence-unit name="TaskyPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+      <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgres://ec2-50-19-233-111.compute-1.amazonaws.com:5432/db80s9u2v37c74" />
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+      <property name="javax.persistence.jdbc.user" value="ddcnuhjimxlzao" />
+      <property name="javax.persistence.jdbc.password" value="o4bZRVYj2eRaFa0ZdCH88gM1rC" />
+      <property name="eclipselink.logging.level" value="ALL" />
+       </properties>
+     </persistence-unit>
+</persistence>

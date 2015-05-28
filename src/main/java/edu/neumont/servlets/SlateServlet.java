@@ -37,8 +37,8 @@ public class SlateServlet extends HttpServlet {
 	public void init()
 	{
 		sh = new SlateHandler();
-		sh.createSlate("Test Slate 1","This is the description for the first slate item.",LocalDateTime.now().plusHours(24L));
-		sh.createSlate("Test Slate 2","This is the description for the second slate item.",LocalDateTime.now().plusHours(48L));
+//		sh.createSlate("Test Slate 1","This is the description for the first slate item.",LocalDateTime.now().plusHours(24L));
+//		sh.createSlate("Test Slate 2","This is the description for the second slate item.",LocalDateTime.now().plusHours(48L));
 		contextPath = this.getServletContext().getContextPath();
 	}
 
@@ -55,19 +55,19 @@ public class SlateServlet extends HttpServlet {
 				DashboardViewModel dvm = new DashboardViewModel();
 				//============start dummy data code================
 				//This is creation of Dummy Data later on data will need to be queried from map (database once it is finished)
-				
+
 				dvm.addSlate(sh.retrieveSlate(1));
 				dvm.addSlate(sh.retrieveSlate(2));
-				dvm.addSlate(sh.retrieveSlate(3));
-				dvm.addSlate(sh.retrieveSlate(4));
+//				dvm.addSlate(sh.retrieveSlate(3));
+//				dvm.addSlate(sh.retrieveSlate(4));
 				//=============end dummy data code=================
 				request.setAttribute("model",dvm);
 				request.setAttribute("context", contextPath);
 				request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request,response);
 			}
-		}catch(Exception e)
+		}catch(NullPointerException e)
 		{
-			SlateServlet.logger.debug(e.getMessage());
+			SlateServlet.logger.debug(e.getMessage() + "asldkfjsldjf");
 		}
 		
 	}

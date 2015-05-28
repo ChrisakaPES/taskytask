@@ -141,10 +141,10 @@
 
 		<!-- Deployment -->
 		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-server</artifactId>
-			<version>${jettyVersion}</version>
-		</dependency>
+      		<groupId>org.eclipse.jetty</groupId>
+      		<artifactId>jetty-servlet</artifactId>
+      		<version>9.2.10.v20150310</version>
+   	    </dependency>
 
 		<!-- Logging -->
 		<dependency>
@@ -165,6 +165,11 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency> 
+			<groupId>org.postgresql</groupId> 
+			<artifactId>postgresql</artifactId> 
+			<version>9.4-1201-jdbc41</version> 
+		</dependency> 
 	</dependencies>
 	<build>
 		<plugins>
