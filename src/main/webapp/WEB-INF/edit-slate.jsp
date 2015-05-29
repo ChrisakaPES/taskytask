@@ -10,25 +10,17 @@
 </head>
 <body>
     <div id="main">
-        <nav class="sidebar">
-            <section class="userImage">
-                <img class="userPic" src="${context}/resources/defaultPic.png"/>
-            </section>
-            <section class="userInfo">
-                <p class="username"><a href="#">Username</a></p>
-            </section>
-        </nav>
         
-        <!-- Attempt at hidden form may need to be moved. -->
-        <section >
-				<form action="update/${ model.getId() }" id="slateUpdateForm" method="post" name="form">
+        
+        <section>
+				<form action="${ context }/dashboard/update/${ model.getId() }" id="slateUpdateForm" method="post" name="form">
 					<h2>Update Slate</h2>
 					<hr>
 					<input id="nameInput" name="name" placeholder="Name" value="${ model.getName() }"type="text">
 					<input id="dateInput" name="dueDate" placeholder="Due Date" value="${ model.getDueDate().toString() }" type="text">
 					<textarea id="descriptionInput" name="description" placeholder="Description">${ model.getDescription() }</textarea>
 					<br/>
-					<a href="javascript:%20check_empty_for_update()" id="submit"></a>
+					<a href="javascript:%20check_empty_for_update()" id="submit">Submit Changes</a>
 				</form>
 		</section>
 		

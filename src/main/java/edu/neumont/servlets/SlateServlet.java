@@ -63,7 +63,8 @@ public class SlateServlet extends HttpServlet {
 					Slate toAdd = sh.retrieveSlate(i);
 					if(toAdd != null)
 					{
-						dvm.addSlate(toAdd);					}
+						dvm.addSlate(toAdd);					
+					}
 				}
 				
 				//=============end dummy data code=================
@@ -77,7 +78,7 @@ public class SlateServlet extends HttpServlet {
 				
 				request.setAttribute("model", toBeEdited);
 				request.setAttribute("context",contextPath);
-				request.getRequestDispatcher("/WEB-INF/edit-slate.jsp");
+				request.getRequestDispatcher("/WEB-INF/edit-slate.jsp").forward(request, response);
 			}
 		}catch(NullPointerException e)
 		{

@@ -1,3 +1,10 @@
 edu/neumont/servlets/Main.class
+edu/neumont/models/Slate.class
+edu/neumont/dal/DbConnection.class
+edu/neumont/models/DashboardViewModel.class
 edu/neumont/test/DBTest.class
+edu/neumont/servlets/UserServlet.class
 edu/neumont/Listeners/SlateListener.class
+edu/neumont/dal/SlateDAL.class
+edu/neumont/dal/SlateHandler.class
+edu/neumont/servlets/SlateServlet.class
