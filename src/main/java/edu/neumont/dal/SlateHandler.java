@@ -89,10 +89,37 @@ public class SlateHandler implements SlateDAL
 	 */
 	public void updateSlate(int index, Slate updatedSlate) 
 	{ 
+		String sql = "UPDATE slates SET slate_description=?, slate_name=?, deadline=? WHERE slate_id=?";
+		
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, updatedSlate.getDescription());
+			statement.setString(2,updatedSlate.getName());
+			statement.setTimestamp(3, Timestamp.from(updatedSlate.getDueDate().toInstant(ZoneOffset.ofHours(0))));
+			statement.setInt(4, index);
+			int rowsUpdated = statement.executeUpdate();
+			shlogger.debug("rows updated:" + rowsUpdated);
+
+		} catch (SQLException e){
+			shlogger.debug(e.getMessage());
+
+		}
 		slateMap.replace(index, updatedSlate);
 	} 
 	public void deleteSlate(int index) 
 	{ 
+		String sql = "Delete from slates where slate_id=?";
+		
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, index);
+			int rowsDeleted = statement.executeUpdate();
+			shlogger.debug("rows effected:" + rowsDeleted);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		slateMap.remove(index);
 	} 
 	private int generateSlateId() {
