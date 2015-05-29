@@ -18,13 +18,7 @@
                 <p class="username"><a href="#">Username</a></p>
             </section>
         </nav>
-        <section class="topBar">
-            <div class="slateOptions">
-                <p><a href="#" onclick="div_show()">Add New Slate</a></p>
-                <p><a href="#">Edit Slate</a></p>
-                <p><a href="#">Delete Slate</a></p>
-            </div>
-        </section>
+                
         <!-- Attempt at hidden form may need to be moved. -->
         <section id="backgroundSection" class="backSection">
 	        <section class="slateCreationForm" id="hiddenFormSection" onload="div_hide()">
@@ -33,14 +27,14 @@
 						<h2>Create new slate</h2>
 						<hr>
 						<input id="nameInput" name="name" placeholder="Name" type="text">
-						<input id="dateInput" name="dueDate" placeholder="Due Date" type="text">
+						<input id="dateInput" name="dueDate" placeholder="Due Date" type="datetime-local">
 						<textarea id="descriptionInput" name="description" placeholder="Description"></textarea>
 						<a href="javascript:%20check_empty()" id="submit">Send</a>
 					</form>
 			</section>
 		</section>
 		<section class="slateSection">
-		
+			<a class="addSlateBtn" href="#" onclick="div_show()">Add New Slate</a>
 			<c:forEach var="slate" items="${model.getSlates()}">
 				<div class="slateWrapper">
 		            <p class="slateName">${ slate.getName() }</p>
