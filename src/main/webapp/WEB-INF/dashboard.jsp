@@ -23,7 +23,7 @@
         <section id="backgroundSection" class="backSection">
 	        <section class="slateCreationForm" id="hiddenFormSection" onload="div_hide()">
 					<form action="create" id="slateCreationForm" method="post" name="form">
-						<img id="close" src="#" onclick ="div_hide()">
+						<img id="close" src="${context}/resources/closeReg.png" onclick ="div_hide()">
 						<h2>Create new slate</h2>
 						<hr>
 						<input id="nameInput" name="name" placeholder="Name" type="text">
