@@ -58,12 +58,19 @@ public class SlateServlet extends HttpServlet {
 				DashboardViewModel dvm = new DashboardViewModel();
 				//============start dummy data code================
 				//This is creation of Dummy Data later on data will need to be queried from map (database once it is finished)
-				for(int i = 1; i <= 5; i++)
+				int counter = 0;
+				for(int i = 1; i <= 100; i++)
 				{
 					Slate toAdd = sh.retrieveSlate(i);
+					if(counter > 4)
+					{
+						break;
+					}
 					if(toAdd != null)
 					{
-						dvm.addSlate(toAdd);					
+						dvm.addSlate(toAdd);
+						counter++;
+						
 					}
 				}
 				
