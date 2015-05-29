@@ -50,7 +50,11 @@ public class Slate implements Serializable
 	public String getDescription() 
 	{ 
 		return description; 
-	} 
+	}
+	public long getId()
+	{
+		return slate_id;
+	}
 	public void setDescription(String description) 
 	{ 
 		this.description = description; 
