@@ -61,7 +61,7 @@ public class SlateHandler implements SlateDAL
 	 */
 	public Slate retrieveSlate(int index) 
 	{ 
-		Slate retrievingSlate = new Slate();
+		Slate retrievingSlate = null;
 		Statement stm;
 			try {
 				stm = connection.createStatement();
@@ -69,6 +69,7 @@ public class SlateHandler implements SlateDAL
 				
 				set = stm.executeQuery("Select * from slates Where slate_id=" + index);
 				while(set.next()) {
+					retrievingSlate = new Slate();
 					retrievingSlate.setDescription(set.getString("slate_description"));
 					retrievingSlate.setDueDate((set.getTimestamp("deadline").toLocalDateTime()));
 					retrievingSlate.setName(set.getString("slate_name"));		
