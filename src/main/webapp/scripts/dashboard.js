@@ -13,6 +13,14 @@ function check_empty() {
 	alert("Form Submitted Successfully...");
 	}
 }
+function check_empty_for_update() {
+	if (document.getElementById('nameInput').value == "" || document.getElementById('dateInput').value == "" 
+			|| document.getElementById('descriptionInput').value == "") {
+	alert("Fill All Fields !");
+	} else {
+	document.getElementById('slateUpdateForm').submit();
+	}
+}
 //Function To Display Popup
 function div_show() {
 	document.getElementById('backgroundSection').style.display = "block";

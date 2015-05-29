@@ -50,7 +50,11 @@ public class Slate implements Serializable
 	public String getDescription() 
 	{ 
 		return description; 
-	} 
+	}
+	public long getId()
+	{
+		return slate_id;
+	}
 	public void setDescription(String description) 
 	{ 
 		this.description = description; 
@@ -63,6 +67,12 @@ public class Slate implements Serializable
 	{ 
 		this.dueDate = dueDate; 
 	} 
+	public void setId(int id) {
+		this.slate_id = id;
+	}
+	public void setUserId(int id) {
+		this.user_id = id;
+	}
 	@Override
 	public String toString() {
 		return name + " " + description;

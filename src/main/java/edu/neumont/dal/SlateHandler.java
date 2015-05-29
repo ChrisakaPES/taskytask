@@ -70,6 +70,8 @@ public class SlateHandler implements SlateDAL
 				set = stm.executeQuery("Select * from slates Where slate_id=" + index);
 				while(set.next()) {
 					retrievingSlate = new Slate();
+					retrievingSlate.setId(set.getInt("slate_id"));
+					retrievingSlate.setUserId(set.getInt("user_id"));
 					retrievingSlate.setDescription(set.getString("slate_description"));
 					retrievingSlate.setDueDate((set.getTimestamp("deadline").toLocalDateTime()));
 					retrievingSlate.setName(set.getString("slate_name"));		

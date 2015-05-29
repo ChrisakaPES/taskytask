@@ -46,6 +46,11 @@
 		            <p class="slateName">${ slate.getName() }</p>
 		            <c:out value="${ slate.getDescription() }"/>
 		            <aside>Task due: ${ slate.getDueDate().toString() }</aside>
+		            <a href="update/${ slate.getId() }">Edit Slate</a>
+		            <form action="delete" method="post" name="deleteForm">
+		            	<input type="hidden" name="toBeDeletedId"value="${ slate.getId() }"/>
+		            	<input type="submit" value="Delete Slate"/>
+		            </form>
 		       </div>	
 	    	</c:forEach>
 	    </section>

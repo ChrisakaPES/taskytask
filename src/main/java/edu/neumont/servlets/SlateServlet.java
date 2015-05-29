@@ -31,6 +31,9 @@ public class SlateServlet extends HttpServlet {
 	
 	public static Pattern DASHBOARD_PATTERN = Pattern.compile("/(\\d+)");
 	public static Pattern CREATE_SLATE_PATTERN = Pattern.compile("/create");
+	public static Pattern DELETE_SLATE_PATTERN = Pattern.compile("/delete");
+	public static Pattern UPDATE_SLATE_PATTERN = Pattern.compile("/update/(\\d+)");
+
 	public static final Logger logger = (Logger) LoggerFactory.getLogger(SlateServlet.class);
     private static String contextPath;
 	@Override
@@ -55,15 +58,26 @@ public class SlateServlet extends HttpServlet {
 				DashboardViewModel dvm = new DashboardViewModel();
 				//============start dummy data code================
 				//This is creation of Dummy Data later on data will need to be queried from map (database once it is finished)
-
-				dvm.addSlate(sh.retrieveSlate(1));
-				dvm.addSlate(sh.retrieveSlate(2));
-//				dvm.addSlate(sh.retrieveSlate(3));
-//				dvm.addSlate(sh.retrieveSlate(4));
+				for(int i = 1; i <= 5; i++)
+				{
+					Slate toAdd = sh.retrieveSlate(i);
+					if(toAdd != null)
+					{
+						dvm.addSlate(toAdd);					}
+				}
+				
 				//=============end dummy data code=================
 				request.setAttribute("model",dvm);
 				request.setAttribute("context", contextPath);
 				request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request,response);
+			}else if((m = UPDATE_SLATE_PATTERN.matcher(url)).matches())
+			{
+				int toBeEditedId = Integer.parseInt(m.group(1));
+				Slate toBeEdited = sh.retrieveSlate(toBeEditedId);
+				
+				request.setAttribute("model", toBeEdited);
+				request.setAttribute("context",contextPath);
+				request.getRequestDispatcher("/WEB-INF/edit-slate.jsp");
 			}
 		}catch(NullPointerException e)
 		{
@@ -99,6 +113,28 @@ public class SlateServlet extends HttpServlet {
 					response.sendRedirect(contextPath+"/dashboard/1");
 				}
 				
+			}else if((m = UPDATE_SLATE_PATTERN.matcher(url)).matches())
+			{
+				int updatingSlateId = Integer.parseInt(m.group(1));//possibly add hidden input to form to eliminate need for id in url
+				Slate toBeUpdated = sh.retrieveSlate(updatingSlateId);
+				
+				//Implement more checking here for now it's pretty simple. Also Date need to be implemented
+				toBeUpdated.setDescription(request.getParameter("description"));
+				toBeUpdated.setDueDate(LocalDateTime.now());
+				toBeUpdated.setName(request.getParameter("name"));
+				
+				sh.updateSlate(updatingSlateId, toBeUpdated);
+				
+				response.sendRedirect(contextPath+"/dashboard/1");
+				
+				
+			}else if((m = DELETE_SLATE_PATTERN.matcher(url)).matches())
+			{
+				int deletingSlateId = Integer.parseInt(request.getParameter("toBeDeletedId"));
+				
+				sh.deleteSlate(deletingSlateId);
+				
+				response.sendRedirect(contextPath+"/dashboard/1");				
 			}
 			
 		}catch(Exception e)
