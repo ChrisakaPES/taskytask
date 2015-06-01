@@ -6,13 +6,13 @@
 
 <head>
     <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="${context}/styles/dashStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/dashStyle.css"/>
 </head>
 <body>
     <div id="main">
         <nav class="sidebar">
             <section class="userImage">
-                <img class="userPic" src="${context}/resources/defaultPic.png"/>
+                <img class="userPic" src="${pageContext.request.contextPath}/resources/defaultPic.png"/>
             </section>
             <section class="userInfo">
                 <p class="username"><a href="#">Username</a></p>
@@ -50,6 +50,6 @@
 	    </section>
 	    
     </div>
-    <script src="${context}/scripts/dashboard.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/scripts/dashboard.js" type="text/javascript"></script>
 </body>
 </html>
