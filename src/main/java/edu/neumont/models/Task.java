@@ -16,8 +16,11 @@ public class Task {
 		this.deadline = deadline;
 		ID++;
 	}
-	
-	
+	public Task() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getSlate_id() {
 		return slate_id;
 	}
@@ -45,6 +48,12 @@ public class Task {
 	public int getTask_id() {
 		return task_id;
 	}
-	
+	public void setTask_id(int id) {
+		this.task_id = id;
+	}
+	@Override
+	public String toString() {
+		return task_name + " " + task_description;
+	}
 	
 }

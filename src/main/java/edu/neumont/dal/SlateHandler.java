@@ -59,7 +59,7 @@ public class SlateHandler implements SlateDAL
 	/* (non-Javadoc)
 	 * @see edu.neumont.dal.SlateDAL#retrieveSlate(int)
 	 */
-	public Slate retrieveSlate(int index) 
+	public Slate retrieveSlate(long index) 
 	{ 
 		Slate retrievingSlate = null;
 		Statement stm;
@@ -90,7 +90,7 @@ public class SlateHandler implements SlateDAL
 	/* (non-Javadoc)
 	 * @see edu.neumont.dal.SlateDAL#updateSlate(int, edu.neumont.models.Slate)
 	 */
-	public void updateSlate(int index, Slate updatedSlate) 
+	public void updateSlate(long index, Slate updatedSlate) 
 	{ 
 		String sql = "UPDATE slates SET slate_description=?, slate_name=?, deadline=? WHERE slate_id=?";
 		
@@ -99,7 +99,7 @@ public class SlateHandler implements SlateDAL
 			statement.setString(1, updatedSlate.getDescription());
 			statement.setString(2,updatedSlate.getName());
 			statement.setTimestamp(3, Timestamp.from(updatedSlate.getDueDate().toInstant(ZoneOffset.ofHours(0))));
-			statement.setInt(4, index);
+			statement.setLong(4, index);
 			int rowsUpdated = statement.executeUpdate();
 			shlogger.debug("rows updated:" + rowsUpdated);
 
@@ -107,15 +107,14 @@ public class SlateHandler implements SlateDAL
 			shlogger.debug(e.getMessage());
 
 		}
-		slateMap.replace(index, updatedSlate);
 	} 
-	public void deleteSlate(int index) 
+	public void deleteSlate(long index) 
 	{ 
 		String sql = "Delete from slates where slate_id=?";
 		
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setInt(1, index);
+			statement.setLong(1, index);
 			int rowsDeleted = statement.executeUpdate();
 			shlogger.debug("rows effected:" + rowsDeleted);
 		} catch (SQLException e) {
