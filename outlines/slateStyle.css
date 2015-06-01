@@ -1,0 +1,164 @@
+body {
+	background-color: #C3C3C3;
+	color: white;
+	font-family: monospace;
+}
+
+a:link, a:visited {
+	color: white;
+}
+
+a:hover {
+	color: #D87133;
+}
+
+a:active {
+	color: #94400D;
+}
+
+.addSlateBtn {
+	width: 110px;
+	text-align: center;
+	border: 2px solid white;
+	margin-left: 20px;
+	padding: 5px;
+}
+
+form {
+	max-width: 300px;
+	min-width: 250px;
+	padding: 10px 50px;
+	border: 2px solid gray;
+	border-radius: 10px;
+	font-family: raleway;
+	background-color: #C3C3C3;
+}
+
+img#close {
+	position: absolute;
+	right: -14px;
+	top: -14px;
+	cursor: pointer
+}
+
+section#hiddenFormSection {
+	position: absolute;
+	left: 50%;
+	top: 17%;
+	margin-left: -202px;
+	font-family: 'Raleway', sans-serif
+}
+
+.sidebar {
+	background-color: #111b25;
+	left: 0;
+	top: 0;
+	width: 300px;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	border-right: 10px solid #d87133;
+	text-align: center;
+	z-index: 10;
+}
+
+.slateOptions {
+	display: flex;
+	flex-direction: row;
+	position: inherit;
+	width: 700px;
+	height: auto;
+	right: 150;
+	margin-top: 5px;
+	margin-left: 450px;
+	text-align: center;
+}
+
+.slateOptions p {
+	margin-left: 50px;
+	margin-right: 50px;
+	font-size: 20px;
+}
+
+.slateWrapper {
+	background-color: #d87133;
+	height: 150px;
+	width: 75%;
+	margin: 0 auto;
+}
+
+.userImage {
+	width: 200px;
+	height: 150px;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 50px;
+	background-color: gray;
+}
+
+.userPic {
+	width: inherit;
+	height: inherit;
+}
+
+.username {
+	font-size: 30px;
+	text-decoration: underline;
+	margin-top: 100px;
+}
+
+.slateCreationForm {
+	position: absolute;
+	width: auto;
+	height: auto;
+	margin: auto;
+	margin-top: 150px;
+	z-index: 15;
+}
+
+.taskSection {
+	background-color: #111b25;
+	/*width: 1480px;*/
+	width: 75%;
+	height: auto;
+	margin: 0 auto;
+	margin-left: 21%;
+	margin-right: 50px;
+	border-radius: 20px;
+	padding-top: 20px;
+	padding-bottom: 80px;
+}
+
+.slateName {
+	text-align: center;
+	font-size: 26px;
+	padding-top: 40px;
+	text-align: center;
+}
+
+#backgroundSection {
+	background-color: #313131;
+	display: none;
+	height: 100%;
+	left: 0;
+	opacity: .95;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 15;
+}
+
+@media ( max-width : 1500px) {
+	.taskSection {
+		width: 60%;
+		margin-left: 35%
+	}
+}
+
+@media ( max-width : 1300px) {
+	.taskSection {
+		margin-left: 37%;
+	}
+}
