@@ -9,7 +9,9 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.LoggerFactory;
@@ -59,15 +61,16 @@ public class SlateHandler implements SlateDAL
 	/* (non-Javadoc)
 	 * @see edu.neumont.dal.SlateDAL#retrieveSlate(int)
 	 */
-	public Slate retrieveSlate(long index) 
+	public List<Slate> retrieveUserSlates(long index) 
 	{ 
+		List<Slate> slates = new ArrayList<>();
 		Slate retrievingSlate = null;
 		Statement stm;
 			try {
 				stm = connection.createStatement();
 				ResultSet set;
 				
-				set = stm.executeQuery("Select * from slates Where slate_id=" + index);
+				set = stm.executeQuery("Select * from slates Where user_id=" + index);
 				while(set.next()) {
 					retrievingSlate = new Slate();
 					retrievingSlate.setId(set.getInt("slate_id"));
@@ -75,7 +78,7 @@ public class SlateHandler implements SlateDAL
 					retrievingSlate.setDescription(set.getString("slate_description"));
 					retrievingSlate.setDueDate((set.getTimestamp("deadline").toLocalDateTime()));
 					retrievingSlate.setName(set.getString("slate_name"));		
-
+					slates.add(retrievingSlate);
 				}
 				stm.close();
 
@@ -83,7 +86,7 @@ public class SlateHandler implements SlateDAL
 				shlogger.debug(e.getMessage());
 			}
 
-		return retrievingSlate;
+		return slates;
 
 	} 
 	
@@ -139,5 +142,31 @@ public class SlateHandler implements SlateDAL
 			shlogger.debug(e.getMessage());
 		}
 		return id;
+	}
+	@Override
+	public Slate retrieveSlate(long index) {
+		Slate retrievingSlate = null;
+		Statement stm;
+			try {
+				stm = connection.createStatement();
+				ResultSet set;
+				
+				set = stm.executeQuery("Select * from slates Where slate_id=" + index);
+				while(set.next()) {
+					retrievingSlate = new Slate();
+					retrievingSlate.setId(set.getInt("slate_id"));
+					retrievingSlate.setUserId(set.getInt("user_id"));
+					retrievingSlate.setDescription(set.getString("slate_description"));
+					retrievingSlate.setDueDate((set.getTimestamp("deadline").toLocalDateTime()));
+					retrievingSlate.setName(set.getString("slate_name"));		
+				}
+				stm.close();
+
+			} catch (SQLException e) {
+				shlogger.debug(e.getMessage());
+			}
+
+		return retrievingSlate;
+
 	}
 }

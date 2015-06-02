@@ -1,13 +1,14 @@
 package edu.neumont.models;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Task {
 	private static int ID = 0;
 	private int task_id, slate_id;
 	private String task_name, task_description;
 	private LocalDateTime deadline;
-	
+	private List<String> users;
 	public Task(int slate_id,String task_name, String task_description, LocalDateTime deadline) {
 		this.task_id = ID;
 		this.slate_id = slate_id;

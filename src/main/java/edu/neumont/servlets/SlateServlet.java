@@ -1,9 +1,8 @@
 package edu.neumont.servlets;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -59,21 +58,22 @@ public class SlateServlet extends HttpServlet {
 				//============start dummy data code================
 				//This is creation of Dummy Data later on data will need to be queried from map (database once it is finished)
 				int counter = 0;
-				for(int i = 1; i <= 100; i++)
-				{
-					Slate toAdd = sh.retrieveSlate(i);
-					if(counter > 4)
-					{
-						break;
-					}
-					if(toAdd != null)
-					{
-						dvm.addSlate(toAdd);
-						counter++;
-						
-					}
-				}
-				
+				List<Slate> slatesToAdd = sh.retrieveUserSlates(1);
+//				for(int i = 1; i <= 100; i++)
+//				{
+//					Slate toAdd = sh.retrieveSlate(i);
+//					if(counter > 4)
+//					{
+//						break;
+//					}
+//					if(toAdd != null)
+//					{
+//						dvm.addSlate(toAdd);
+//						counter++;
+//						
+//					}
+//				}
+				dvm.addSlates(slatesToAdd);
 				//=============end dummy data code=================
 				request.setAttribute("model",dvm);
 				request.setAttribute("context", contextPath);
