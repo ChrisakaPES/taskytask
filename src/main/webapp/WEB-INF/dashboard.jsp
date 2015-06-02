@@ -37,7 +37,7 @@
 			<a class="addSlateBtn" href="#" onclick="div_show()">Add New Slate</a>
 			<c:forEach var="slate" items="${model.getSlates()}">
 				<div class="slateWrapper">
-		            <p class="slateName">${ slate.getName() }</p>
+		            <p class="slateName"><a href="${pageContext.request.contextPath}/slate/${slate.getId()}">${ slate.getName() }</a></p>
 		            <c:out value="${ slate.getDescription() }"/>
 		            <aside>Task due: ${ slate.getDueDate().toString() }</aside>
 		            <a href="update/${ slate.getId() }" >Edit Slate</a>

@@ -22,19 +22,31 @@
 	<section class="taskSection">
 		<section id="backgroundCreateSection" class="backSection">
 			<section class="taskCreationForm" id="hiddenCreateFormSection" onload="create_div_hide()">
-				<form action="create/task" id="taskCreationForm" method="post" name="createForm">
+				<form action="${ pageContext.request.contextPath }/slate/${ slateId }create/task" id="taskCreationForm" method="post" name="createForm">
 					<img id="closeCreate" src="${pageContext.request.ContextPath }/resources/closeReg.png" onclick="create_div_hide()" />
 					<h2>Create new task</h2>
 					<hr>
-					<input id="nameInput" name="name" placeholder="Name" type="text">
-					<input id="dateInput" name="dueDate" placeholder="Due Date" type="datetime-local">
-					<textarea id="descriptionInput" name="description" placeholder="Description"></textarea>
-					<a href="javascript:%20check_empty()" id="submit">Create</a>
+					<input id="createSlateId" name="slateId" value="${ slateId }" type="hidden">
+					<input id="createNameInput" name="name" placeholder="Name" type="text">
+					<input id="createDateInput" name="dueDate" placeholder="Due Date" type="datetime-local">
+					<textarea id="createDescriptionInput" name="description" placeholder="Description"></textarea>
+					<a href="javascript:%20create_check_empty()" id="submit">Create</a>
 				</form>
 			</section>
 		</section>
 		<a class="addSlateBtn" href="#" onclick="create_div_show()">Add New Task</a>
 		<p class="slateName">Tasks</p>
+		<c:forEach var="task" items="${ model.getTasks() }">
+			<div class="taskWrapper">
+				<p class="taskName">${ task.getTask_name() }</p>
+				<c:out value="${ task.getTask_description() }"></c:out>
+				<aside>Task Due: ${ task.getDeadline() }</aside>
+				<!-- Link or Button to call popup updating form Should go here. -->
+				<!-- Link or Button to delete task should go here. -->
+				
+				
+			</div>
+		</c:forEach>
 		
 	</section>
 	</main>

@@ -5,8 +5,8 @@
 Console.log("dashboard.js Loaded");
 
 function check_empty() {
-	if (document.getElementById('nameInput').value == "" || document.getElementById('dateInput').value == "" 
-			|| document.getElementById('descriptionInput').value == "") {
+	if (document.getElementById('nameInput').value === "" || document.getElementById('dateInput').value === "" 
+			|| document.getElementById('descriptionInput').value === "") {
 	alert("Fill All Fields !");
 	} else {
 	document.getElementById('slateCreationForm').submit();
@@ -14,8 +14,8 @@ function check_empty() {
 	}
 }
 function check_empty_for_update() {
-	if (document.getElementById('nameInput').value == "" || document.getElementById('dateInput').value == "" 
-			|| document.getElementById('descriptionInput').value == "") {
+	if (document.getElementById('nameInput').value === "" || document.getElementById('dateInput').value === "" 
+			|| document.getElementById('descriptionInput').value === "") {
 	alert("Fill All Fields !");
 	} else {
 	document.getElementById('slateUpdateForm').submit();

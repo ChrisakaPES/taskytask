@@ -11,6 +11,10 @@ public class SlateViewModel {
 	{
 		this.tasks = tasks;
 	}
+
+	public List<Task> getTasks() {
+		return tasks;
+	}
 	
 	
 	
