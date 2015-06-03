@@ -1,0 +1,27 @@
+body {
+	font-family: monospace;
+	font-size: 2em;
+	color: white;
+	background-image: url("assets/errorBackground.jpg");
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.serverError, .fnfError {
+	width: 500px;
+	height: auto;
+	margin: 0 auto;
+	padding: 50px;
+	background-color: rgba(0, 0, 0, .7);
+	background-opacity: .5;
+	margin-top: 10%;
+}
+
+.fnfError {
+
+}
+
+.error {
+	text-align: center;
+}
