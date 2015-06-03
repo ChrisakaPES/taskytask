@@ -75,11 +75,15 @@ public class IndividualSlateServlet extends HttpServlet {
 			taskDAL.create(slateId, name, description, dueDate);
 			
 			response.sendRedirect(contextPath + "/slate/" + slateId);
-			
+
 			
 		}else if((m = DELETE_TASK_PATTERN.matcher(url)).matches())
 		{
+			long toDeleteId = Long.parseLong(request.getParameter("toBeDeletedId"));
+			long slateId = Long.parseLong(m.group(1));
+			taskDAL.delete(toDeleteId);
 			
+			response.sendRedirect(contextPath + "/slate/" + slateId);
 		}else if((m = UPDATE_TASK_PATTERN.matcher(url)).matches())
 		{
 			

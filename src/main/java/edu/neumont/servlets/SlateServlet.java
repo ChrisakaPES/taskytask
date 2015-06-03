@@ -58,7 +58,7 @@ public class SlateServlet extends HttpServlet {
 				//============start dummy data code================
 				//This is creation of Dummy Data later on data will need to be queried from map (database once it is finished)
 				int counter = 0;
-				List<Slate> slatesToAdd = sh.retrieveUserSlates(1);
+				List<Slate> slatesToAdd = sh.retrieveUserSlates(1l);
 //				for(int i = 1; i <= 100; i++)
 //				{
 //					Slate toAdd = sh.retrieveSlate(i);
