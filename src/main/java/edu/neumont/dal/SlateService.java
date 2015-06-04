@@ -5,7 +5,7 @@ import java.util.List;
 
 import edu.neumont.models.Slate;
 
-public interface SlateDAL {
+public interface SlateService {
 
 	
 	public abstract boolean createSlate(String name, String description,

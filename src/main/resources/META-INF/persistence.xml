@@ -2,7 +2,7 @@
 <persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
   version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
-  <persistence-unit name="TaskyPU" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="punit" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
       <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgres://ec2-50-19-233-111.compute-1.amazonaws.com:5432/db80s9u2v37c74" />

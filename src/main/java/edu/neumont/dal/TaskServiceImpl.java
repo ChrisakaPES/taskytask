@@ -13,17 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import ch.qos.logback.classic.Logger;
-import edu.neumont.models.Slate;
 import edu.neumont.models.Task;
 
-public class TaskDALImpl implements TaskDAL{
+@Service("taskService")
+public class TaskServiceImpl implements TaskService{
 
 	private Connection connection;
-	public static final Logger tasklogger = (Logger) LoggerFactory.getLogger(TaskDALImpl.class);
+	public static final Logger tasklogger = (Logger) LoggerFactory.getLogger(TaskServiceImpl.class);
 
-	public TaskDALImpl() {
+	public TaskServiceImpl() {
 		try {
 			connection = DbConnection.accessDB();
 		} catch (URISyntaxException | SQLException e) {
@@ -60,7 +61,7 @@ public class TaskDALImpl implements TaskDAL{
 			statement.setString(1, t.getTask_description());
 			statement.setString(2,t.getTask_name());
 			statement.setTimestamp(3, Timestamp.from(t.getDeadline().toInstant(ZoneOffset.ofHours(0))));
-			statement.setInt(4, t.getTask_id());
+			statement.setLong(4, t.getTask_id());
 			int rowsUpdated = statement.executeUpdate();
 			tasklogger.debug("rows updated:" + rowsUpdated);
 
@@ -99,8 +100,8 @@ public class TaskDALImpl implements TaskDAL{
 				set = stm.executeQuery("Select * from task Where slate_id=" + slate_id);
 				while(set.next()) {
 					retrievingTask = new Task();
-					retrievingTask.setSlate_id(set.getInt("slate_id"));
-					retrievingTask.setTask_id(set.getInt("task_id"));
+					retrievingTask.setSlate_id(set.getLong("slate_id"));
+					retrievingTask.setTask_id(set.getLong("task_id"));
 					retrievingTask.setTask_description(set.getString("slate_description"));
 					retrievingTask.setDeadline((set.getTimestamp("deadline").toLocalDateTime()));
 					retrievingTask.setTask_name(set.getString("slate_name"));		
@@ -115,5 +116,31 @@ public class TaskDALImpl implements TaskDAL{
 		return tasks;
 
 	}
+	public Task retrieveTask(long task_id) {
+		Task retrievingTask = null;
+		List<Task> tasks = new ArrayList<>();
+		Statement stm;
+			try {
+				stm = connection.createStatement();
+				ResultSet set;
+				
+				set = stm.executeQuery("Select * from task Where task_id=" + task_id);
+				while(set.next()) {
+					retrievingTask = new Task();
+					retrievingTask.setSlate_id(set.getLong("slate_id"));
+					retrievingTask.setTask_id(set.getLong("task_id"));
+					retrievingTask.setTask_description(set.getString("slate_description"));
+					retrievingTask.setDeadline((set.getTimestamp("deadline").toLocalDateTime()));
+					retrievingTask.setTask_name(set.getString("slate_name"));		
+					tasks.add(retrievingTask);
+				}
+				stm.close();
 
+			} catch (SQLException e) {
+				tasklogger.debug(e.getMessage());
+			}
+
+		return retrievingTask;
+
+	}
 }

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.neumont.dal.TaskDAL;
-import edu.neumont.dal.TaskDALImpl;
+import edu.neumont.dal.TaskService;
+import edu.neumont.dal.TaskServiceImpl;
 import edu.neumont.models.SlateViewModel;
 import edu.neumont.models.Task;
 
@@ -23,7 +23,7 @@ import edu.neumont.models.Task;
 @WebServlet("/slate/*")
 public class IndividualSlateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static TaskDAL taskDAL;
+	private static TaskService taskDAL;
 	private String contextPath;
 	
 	public static Pattern CREATE_TASK_PATTERN = Pattern.compile("/(\\d+)/create/task");
@@ -33,7 +33,7 @@ public class IndividualSlateServlet extends HttpServlet {
 	@Override
 	public void init()
 	{
-		taskDAL = new TaskDALImpl();
+		taskDAL = new TaskServiceImpl();
 		contextPath = this.getServletContext().getContextPath();
 	}
 	/**
@@ -92,7 +92,7 @@ public class IndividualSlateServlet extends HttpServlet {
 			LocalDateTime updatedDate = LocalDateTime.parse(request.getParameter("dueDate"));
 			String updatedDescription = request.getParameter("description");
 			
-			Task toBeUpdated = taskDAL
+			Task toBeUpdated = taskDAL.retrieveTask(taskToUpdateId);
 			
 			
 			

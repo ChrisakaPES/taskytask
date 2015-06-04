@@ -1,21 +1,26 @@
 package edu.neumont.models;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
 @Table(name="slates")
 public class Slate implements Serializable
 { 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name="slate_id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private long slate_id;
+	private Long slate_id;
 	
 	@Column
 	private long user_id;
@@ -67,7 +72,7 @@ public class Slate implements Serializable
 	{ 
 		this.dueDate = dueDate; 
 	} 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.slate_id = id;
 	}
 	public void setUserId(int id) {
