@@ -19,7 +19,7 @@ function create_div_show() {
 
 function update_check_empty() {
 	if(document.getElementById('updateNameInput').value === "" || document.getElementById('updateDateInput').value === ""
-		|| document.getElementById('updatecreateDescriptionInput').value === "") {
+		|| document.getElementById('updateDescriptionInput').value === "") {
 		alert("Fill all of the fields!");
 	} else {
 		document.getElementById('taskupdatingForm').submit();
@@ -41,5 +41,15 @@ function div_show(backgroundSection) {
 	document.getElementById(backgroundSection).style.display = "block";
 
 }
+function showUpdateWindow(taskId,taskName,taskDeadline,taskDescription) {
+	document.getElementById('updateTaskId').value = taskId;
+	document.getElementById('updateNameInput').value = taskName;
+	document.getElementById('updateDateInput').value = taskDeadline;
+	document.getElementById('updateDescriptionInput').value = taskDescription;
+	div_show('backgroundUpdateSection');
+}
+
+
+
 div_hide("backgroundUpdateSection");
 div_hide("backgroundCreateSection")
