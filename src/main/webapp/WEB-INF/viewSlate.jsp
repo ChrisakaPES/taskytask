@@ -41,6 +41,7 @@
 					<h2>Update task</h2>
 					<hr>
 					<input id="updateSlateId" name="slateId" value="${ slateId }" type="hidden">
+					<input id="updateTaskId" name="taskId" value="" type="hidden">
 					<input id="updateNameInput" name="name" placeholder="Name" type="text">
 					<input id="updateDateInput" name="dueDate" placeholder="Due Date" type="datetime-local">
 					<textarea id="updateDescriptionInput" name="description" placeholder="Description"></textarea>
@@ -56,6 +57,7 @@
 				<c:out value="${ task.getTask_description() }"></c:out>
 				<aside>Task Due: ${ task.getDeadline() }</aside>
 				<!-- Link or Button to call popup updating form Should go here. -->
+				<a href="#" onclick="showUpdateWindow(${ task.getTask_id()},'${task.getTask_name() }','${ task.getDeadline() }','${ task.getTask_description() }')" >Edit Slate</a>
 				<!-- Link or Button to delete task should go here. -->
 				<form action="<c:url value="/slate/${ slateId }/delete/task"></c:url>" method="post">
 					<input type="hidden" name="toBeDeletedId" value="${ task.getTask_id() }" />

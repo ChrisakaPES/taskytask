@@ -28,7 +28,7 @@ public class IndividualSlateServlet extends HttpServlet {
 	
 	public static Pattern CREATE_TASK_PATTERN = Pattern.compile("/(\\d+)/create/task");
 	public static Pattern DELETE_TASK_PATTERN = Pattern.compile("/(\\d+)/delete/task");
-	public static Pattern UPDATE_TASK_PATTERN = Pattern.compile("/(\\d+)/update/task/(\\d+)");
+	public static Pattern UPDATE_TASK_PATTERN = Pattern.compile("/(\\d+)/update/task");
        
 	@Override
 	public void init()
@@ -86,6 +86,15 @@ public class IndividualSlateServlet extends HttpServlet {
 			response.sendRedirect(contextPath + "/slate/" + slateId);
 		}else if((m = UPDATE_TASK_PATTERN.matcher(url)).matches())
 		{
+			long slateId = Long.parseLong(request.getParameter("slateId"));
+			long taskToUpdateId = Long.parseLong(request.getParameter("taskId"));
+			String updatedName = request.getParameter("name");
+			LocalDateTime updatedDate = LocalDateTime.parse(request.getParameter("dueDate"));
+			String updatedDescription = request.getParameter("description");
+			
+			Task toBeUpdated = taskDAL
+			
+			
 			
 		}
 	}
