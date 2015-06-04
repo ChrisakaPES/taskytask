@@ -28,12 +28,11 @@ form {
 	max-width: 300px;
 	min-width: 250px;
 	padding: 10px 50px;
-	border: 2px solid gray;
+	border: 2px solid white;
 	border-radius: 10px;
 	font-family: raleway;
-	background-color: #C3C3C3;
+	background-color: #909090;
 }
-
 img#close {
 	position: absolute;
 	right: -14px;
@@ -138,7 +137,7 @@ section#hiddenFormSection {
 }
 
 #backgroundSection {
-	background-color: #313131;
+/* 	background-color: #313131; */
 	display: none;
 	height: 100%;
 	left: 0;
