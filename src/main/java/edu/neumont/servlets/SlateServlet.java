@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
-import edu.neumont.dal.SlateDAL;
-import edu.neumont.dal.SlateHandler;
+import edu.neumont.dal.SlateService;
+import edu.neumont.dal.SlateServiceImpl;
 import edu.neumont.models.DashboardViewModel;
 import edu.neumont.models.Slate;
 
@@ -26,7 +26,7 @@ import edu.neumont.models.Slate;
 @WebServlet("/dashboard/*")
 public class SlateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static SlateDAL sh;
+	private static SlateService sh;
 	
 	public static Pattern DASHBOARD_PATTERN = Pattern.compile("/(\\d+)");
 	public static Pattern CREATE_SLATE_PATTERN = Pattern.compile("/create");
@@ -38,7 +38,7 @@ public class SlateServlet extends HttpServlet {
 	@Override
 	public void init()
 	{
-		sh = new SlateHandler();
+		sh = new SlateServiceImpl();
 //		sh.createSlate("Test Slate 1","This is the description for the first slate item.",LocalDateTime.now().plusHours(24L));
 //		sh.createSlate("Test Slate 2","This is the description for the second slate item.",LocalDateTime.now().plusHours(48L));
 		contextPath = this.getServletContext().getContextPath();

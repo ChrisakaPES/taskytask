@@ -93,7 +93,13 @@ public class IndividualSlateServlet extends HttpServlet {
 			String updatedDescription = request.getParameter("description");
 			
 			Task toBeUpdated = taskDAL.retrieveTask(taskToUpdateId);
+			toBeUpdated.setDeadline(updatedDate);
+			toBeUpdated.setTask_description(updatedDescription);
+			toBeUpdated.setTask_name(updatedName);
 			
+			taskDAL.update(toBeUpdated);			
+			response.sendRedirect(contextPath + "/slate/" + slateId);
+
 			
 			
 		}
