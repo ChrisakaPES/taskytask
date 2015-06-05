@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 import ch.qos.logback.classic.Logger;
 import edu.neumont.models.Slate;
 
-@Service("slateService")
+//@Service("slateService")
 public class SlateServiceImpl implements SlateService
 { 
 	private Map<Integer,Slate> slateMap = new HashMap<Integer,Slate>();

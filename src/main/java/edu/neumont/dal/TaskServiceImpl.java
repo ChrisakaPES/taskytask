@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 import ch.qos.logback.classic.Logger;
 import edu.neumont.models.Task;
 
-@Service("taskService")
+//@Service("taskService")
 public class TaskServiceImpl implements TaskService{
 
 	private Connection connection;
@@ -54,7 +54,7 @@ public class TaskServiceImpl implements TaskService{
 
 	@Override
 	public Task update(Task t) {
-		String sql = "UPDATE slates SET task_description=?, task_name=?, deadline=? WHERE task_id=?";
+		String sql = "UPDATE task SET slate_description=?, slate_name=?, deadline=? WHERE task_id=?";
 		
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);

@@ -22,7 +22,7 @@ function update_check_empty() {
 		|| document.getElementById('updateDescriptionInput').value === "") {
 		alert("Fill all of the fields!");
 	} else {
-		document.getElementById('taskupdatingForm').submit();
+		document.getElementById('taskUpdatingForm').submit();
 		alert("Form Submitted Successfully!");
 	}
 }

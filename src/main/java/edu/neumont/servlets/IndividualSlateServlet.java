@@ -48,13 +48,11 @@ public class IndividualSlateServlet extends HttpServlet {
 			long slateId = Long.parseLong(m.group(1));
 			List<Task> tasksInSlate = taskDAL.retrieveTasks(slateId);
 			SlateViewModel svm = new SlateViewModel(tasksInSlate);
-			SlateServlet.logger.debug(tasksInSlate.size()+"tasks for Slate ID: " + slateId);
 			
 			request.setAttribute("model", svm);
 			request.setAttribute("slateId", slateId);
 			request.getRequestDispatcher("/WEB-INF/viewSlate.jsp").forward(request, response);
 		}else {
-			SlateServlet.logger.debug("It didn't work here is the path info: "+ url);
 		}
 	}
 
@@ -92,6 +90,7 @@ public class IndividualSlateServlet extends HttpServlet {
 			LocalDateTime updatedDate = LocalDateTime.parse(request.getParameter("dueDate"));
 			String updatedDescription = request.getParameter("description");
 			
+			SlateServlet.logger.debug("IN UPDATE_TAK_PATTERN if statement.");
 			Task toBeUpdated = taskDAL.retrieveTask(taskToUpdateId);
 			toBeUpdated.setDeadline(updatedDate);
 			toBeUpdated.setTask_description(updatedDescription);
