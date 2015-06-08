@@ -32,6 +32,7 @@ form {
 	border-radius: 10px;
 	font-family: raleway;
 	background-color: #909090;
+	margin-top: 20px;
 }
 
 img#close {
@@ -88,6 +89,24 @@ section#hiddenFormSection {
 	margin: 0 auto;
 }
 
+.taskName {
+	font-size: 26px;
+	text-align: center;
+}
+
+.taskWrapper {
+	background-color: #d87133;
+	width: 75%;
+	height: 165px;
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 1px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
 .userImage {
 	width: 200px;
 	height: 150px;
@@ -139,8 +158,8 @@ section#hiddenFormSection {
 
 img#closeCreate {
 	position: absolute;
-	top: -20px;
-	right: -20px;
+	top: 5px;
+	right: -15px;
 }
 section#backgroundCreateSection {
 	width: 370px;

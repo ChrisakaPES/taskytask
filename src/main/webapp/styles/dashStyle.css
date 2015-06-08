@@ -9,7 +9,7 @@ a:link, a:visited {
 }
 
 a:hover {
-	color: #D87133;
+	color: #1e90ff;
 }
 
 a:active {
@@ -32,11 +32,12 @@ form {
 	border-radius: 10px;
 	font-family: raleway;
 	background-color: #909090;
+	margin-top: 20px;
 }
 img#close {
 	position: absolute;
-	right: -14px;
-	top: -14px;
+	right: -20px;
+	top: 0px;
 	cursor: pointer
 }
 
@@ -82,9 +83,13 @@ section#hiddenFormSection {
 
 .slateWrapper {
 	background-color: #d87133;
-	height: 150px;
+	height: 165px;
 	width: 75%;
 	margin: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	margin-bottom: -15px;
 }
 
 .userImage {

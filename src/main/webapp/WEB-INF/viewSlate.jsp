@@ -15,7 +15,7 @@
 		</section>
 		<section class="userInfo">
 			<p class="username">
-				<a href="#">Username</a>
+				<a href="${pageContext.request.contextPath}/dashboard/1">Username</a>
 			</p>
 		</section>
 	</nav>
