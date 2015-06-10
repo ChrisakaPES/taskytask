@@ -57,9 +57,9 @@
 				<c:out value="${ task.getTask_description() }"></c:out>
 				<aside>Task Due: ${ task.getDeadline() }</aside>
 				<!-- Link or Button to call popup updating form Should go here. -->
-				<a href="#" onclick="showUpdateWindow(${ task.getTask_id()},'${task.getTask_name() }','${ task.getDeadline() }','${ task.getTask_description() }')" >Edit Slate</a>
+				<a href="#" onclick="showUpdateWindow(${ task.getTask_id()},'${task.getTask_name() }','${ task.getDeadline() }','${ task.getTask_description() }')" >Edit Task</a>
 				<!-- Link or Button to delete task should go here. -->
-				<form action="<c:url value="/slate/${ slateId }/delete/task"></c:url>" method="post">
+				<form id="deleteForm" action="<c:url value="/slate/${ slateId }/delete/task"></c:url>" method="post">
 					<input type="hidden" name="toBeDeletedId" value="${ task.getTask_id() }" />
 					<input type="submit" value="Delete Task" />
 				</form>

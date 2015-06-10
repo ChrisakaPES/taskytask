@@ -15,14 +15,14 @@
                 <img class="userPic" src="${pageContext.request.contextPath}/resources/defaultPic.png"/>
             </section>
             <section class="userInfo">
-                <p class="username"><a href="#">Username</a></p>
+                <p class="username"><a href="#">TaskyTask</a></p>
             </section>
         </nav>
                 
         <!-- Attempt at hidden form may need to be moved. -->
         <section id="backgroundSection" class="backSection">
 	        <section class="slateCreationForm" id="hiddenFormSection" onload="div_hide()">
-					<form action="create" id="slateCreationForm" method="post" name="form">
+					<form class="newForm" action="create" id="slateCreationForm" method="post" name="form">
 						<img id="close" src="${context}/resources/closeReg.png" onclick ="div_hide()">
 						<h2>Create new slate</h2>
 						<hr>
@@ -35,13 +35,14 @@
 		</section>
 		<section class="slateSection">
 			<a class="addSlateBtn" href="#" onclick="div_show()">Add New Slate</a>
+			<p class="slateName">Slates</p>
 			<c:forEach var="slate" items="${model.getSlates()}">
 				<div class="slateWrapper">
 		            <p class="slateName"><a href="${pageContext.request.contextPath}/slate/${slate.getId()}">${ slate.getName() }</a></p>
 		            <c:out value="${ slate.getDescription() }"/>
 		            <aside>Task due: ${ slate.getDueDate().toString() }</aside>
 		            <a href="update/${ slate.getId() }" >Edit Slate</a>
-		            <form action="delete" method="post" name="deleteForm">
+		            <form class="deleteForm" action="delete" method="post" name="deleteForm">
 		            	<input type="hidden" name="toBeDeletedId" value="${ slate.getId() }"/>
 		            	<input type="submit" value="Delete Slate"/>
 		            </form>

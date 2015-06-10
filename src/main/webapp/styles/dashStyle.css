@@ -24,7 +24,7 @@ a:active {
 	padding: 5px;
 }
 
-form {
+.newForm {
 	max-width: 300px;
 	min-width: 250px;
 	padding: 10px 50px;
@@ -33,7 +33,23 @@ form {
 	font-family: raleway;
 	background-color: #909090;
 	margin-top: 20px;
+	padding-bottom: 30px;
 }
+.newForm input {
+	margin-bottom: 10px;
+}
+.deleteForm {
+	min-width: 90px;
+	position: absolute;
+	right: 250px;
+	padding: 5px 20px;
+	border: 2px solid white;
+	border-radius: 10px;
+	font-family: raleway;
+	background-color: #909090;
+	margin-top: 0px;
+}
+
 img#close {
 	position: absolute;
 	right: -20px;
@@ -159,10 +175,16 @@ section#hiddenFormSection {
 		width: 60%;
 		margin-left: 35%
 	}
+	.deleteForm {
+		right: 180px;
+	}
 }
 
 @media ( max-width : 1300px) {
 	.slateSection {
 		margin-left: 37%;
+	}
+	.deleteForm {
+		right: 100px;
 	}
 }
