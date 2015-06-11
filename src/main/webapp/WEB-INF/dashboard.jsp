@@ -23,7 +23,7 @@
         <section id="backgroundSection" class="backSection">
 	        <section class="slateCreationForm" id="hiddenFormSection" onload="div_hide()">
 					<form action="create" id="slateCreationForm" method="post" name="form">
-						<img id="close" src="${context}/resources/closeReg.png" onclick ="div_hide()">
+						<img id="close" src="${context}/resources/closeReg.png" onclick="div_hide()">
 						<h2>Create new slate</h2>
 						<hr>
 						<input id="nameInput" name="name" placeholder="Name" type="text">
@@ -33,6 +33,21 @@
 					</form>
 			</section>
 		</section>
+		<section id="backgroundUpdateSection" class="backSection">
+			<section class="slateCreationForm" id="hiddenUpdateFormSection" onload="div_hide('backgroundUpdateSection')">
+				<form action="${ context }/dashboard/update" id="slateUpdateForm" method="post" name="form">
+					<img id="close" src="${context}/resources/closeReg.png" onclick="div_hide('backgroundUpdateSection')">
+					<h2>Update Slate</h2>
+					<hr>
+					<input type="hidden" id="updateSlateId" name="slateId" value="" />
+					<input id="updateNameInput" name="name" placeholder="Name" value=""type="text">
+					<input id="updateDateInput" name="dueDate" placeholder="Due Date" value="" type="datetime-local">
+					<textarea id="updateDescriptionInput" name="description" placeholder="Description"></textarea>
+					<br/>
+					<a href="javascript:%20check_empty_for_update()" id="submit">Submit Changes</a>
+				</form>
+			</section>
+		</section>
 		<section class="slateSection">
 			<a class="addSlateBtn" href="#" onclick="div_show()">Add New Slate</a>
 			<c:forEach var="slate" items="${model.getSlates()}">
@@ -40,7 +55,7 @@
 		            <p class="slateName"><a href="${pageContext.request.contextPath}/slate/${slate.getId()}">${ slate.getName() }</a></p>
 		            <c:out value="${ slate.getDescription() }"/>
 		            <aside>Task due: ${ slate.getDueDate().toString() }</aside>
-		            <a href="update/${ slate.getId() }" >Edit Slate</a>
+		            <a href="#" onclick="showUpdateWindow(${ slate.getId()},'${ slate.getName() }','${ slate.getDueDate() }','${ slate.getDescription() }')">Edit Slate</a>
 		            <form action="delete" method="post" name="deleteForm">
 		            	<input type="hidden" name="toBeDeletedId" value="${ slate.getId() }"/>
 		            	<input type="submit" value="Delete Slate"/>

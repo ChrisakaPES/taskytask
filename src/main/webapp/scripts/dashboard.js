@@ -2,6 +2,7 @@
  * 
  */
 //Validating Empty Field
+var Console = Console;
 Console.log("dashboard.js Loaded");
 
 function check_empty() {
@@ -21,6 +22,13 @@ function check_empty_for_update() {
 	document.getElementById('slateUpdateForm').submit();
 	}
 }
+function showUpdateWindow(slateId,slateName,slateDeadline,slateDescription) {
+	document.getElementById('updateSlateId').value = slateId;
+	document.getElementById('updateNameInput').value = slateName;
+	document.getElementById('updateDateInput').value = slateDeadline;
+	document.getElementById('updateDescriptionInput').value = slateDescription;
+	div_show('backgroundUpdateSection');
+}
 //Function To Display Popup
 function div_show() {
 	document.getElementById('backgroundSection').style.display = "block";
@@ -29,3 +37,11 @@ function div_show() {
 function div_hide(){
 	document.getElementById('backgroundSection').style.display = "none";
 }
+function div_hide(divId){
+	document.getElementById(divId).style.display = "none";
+}
+function div_show(divId) {
+	document.getElementById(divId).style.display = "block";
+}
+
+//div_hide("backgroundUpdateSection")

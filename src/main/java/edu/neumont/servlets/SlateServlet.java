@@ -31,7 +31,7 @@ public class SlateServlet extends HttpServlet {
 	public static Pattern DASHBOARD_PATTERN = Pattern.compile("/(\\d+)");
 	public static Pattern CREATE_SLATE_PATTERN = Pattern.compile("/create");
 	public static Pattern DELETE_SLATE_PATTERN = Pattern.compile("/delete");
-	public static Pattern UPDATE_SLATE_PATTERN = Pattern.compile("/update/(\\d+)");
+	public static Pattern UPDATE_SLATE_PATTERN = Pattern.compile("/update");
 
 	public static final Logger logger = (Logger) LoggerFactory.getLogger(SlateServlet.class);
     private static String contextPath;
@@ -80,6 +80,7 @@ public class SlateServlet extends HttpServlet {
 				request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request,response);
 			}else if((m = UPDATE_SLATE_PATTERN.matcher(url)).matches())
 			{
+				// This get may not be necessary anymore
 				int toBeEditedId = Integer.parseInt(m.group(1));
 				Slate toBeEdited = sh.retrieveSlate(toBeEditedId);
 				
@@ -123,7 +124,7 @@ public class SlateServlet extends HttpServlet {
 				
 			}else if((m = UPDATE_SLATE_PATTERN.matcher(url)).matches())
 			{
-				int updatingSlateId = Integer.parseInt(m.group(1));//possibly add hidden input to form to eliminate need for id in url
+				int updatingSlateId = Integer.parseInt(request.getParameter("slateId"));//possibly add hidden input to form to eliminate need for id in url
 				Slate toBeUpdated = sh.retrieveSlate(updatingSlateId);
 				
 				//Implement more checking here for now it's pretty simple. Also Date need to be implemented
