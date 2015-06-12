@@ -15,10 +15,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
 import ch.qos.logback.classic.Logger;
 import edu.neumont.models.Slate;
+import edu.neumont.models.Task;
 
 //@Service("slateService")
 public class SlateServiceImpl implements SlateService
@@ -115,9 +115,16 @@ public class SlateServiceImpl implements SlateService
 	} 
 	public void deleteSlate(long index) 
 	{ 
+		TaskService ts = new TaskServiceImpl();
 		String sql = "Delete from slates where slate_id=?";
 		
 		try {
+			List<Task>tasksToDelete = ts.retrieveTasks(index);
+			for(Task t: tasksToDelete)
+			{
+				ts.delete(t.getTask_id());
+			}
+			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setLong(1, index);
 			int rowsDeleted = statement.executeUpdate();
