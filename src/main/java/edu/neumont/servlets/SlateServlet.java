@@ -108,9 +108,18 @@ public class SlateServlet extends HttpServlet {
 				String newSlateName = request.getParameter("name");
 				String newSlateDescription = request.getParameter("description");
 				String newSlateDueDate = request.getParameter("dueDate");
+				logger.info(newSlateDueDate.toString());
+				LocalDateTime dueDate = LocalDateTime.parse(newSlateDueDate);
+				if(dueDate == null)
+				{
+					logger.debug("dueDate is null");
+				}else
+				{
+					logger.info(dueDate.toString());
+				}
 				//setting the date to posting time for new slate eventually we will implement a date 
 				//picker type thing.
-				if(!sh.createSlate(newSlateName,newSlateDescription,LocalDateTime.now()))
+				if(!sh.createSlate(newSlateName,newSlateDescription,dueDate))
 				{
 					//Being here means the Slate may not be valid more of an issue later.
 					//Don't just throw an exception here only doing so in order to have something here

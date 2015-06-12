@@ -23,7 +23,7 @@
         <section id="backgroundSection" class="backSection">
 	        <section class="slateCreationForm" id="hiddenFormSection" onload="div_hide()">
 					<form class="newForm" action="create" id="slateCreationForm" method="post" name="form">
-						<img id="close" src="${context}/resources/closeReg.png" onclick ="div_hide()">
+						<img id="close" src="${context}/resources/closeReg.png" onclick ="div_hide('backgroundSection')">
 						<h2>Create new slate</h2>
 						<hr>
 						<input id="nameInput" name="name" placeholder="Name" type="text">
@@ -35,7 +35,7 @@
 		</section>
 		<section id="backgroundUpdateSection" class="backSection">
 			<section class="slateCreationForm" id="hiddenUpdateFormSection" onload="div_hide('backgroundUpdateSection')">
-				<form action="${ context }/dashboard/update" id="slateUpdateForm" method="post" name="form">
+				<form action="${ context }/dashboard/update" class="newForm" id="slateUpdateForm" method="post" name="form">
 					<img id="close" src="${context}/resources/closeReg.png" onclick="div_hide('backgroundUpdateSection')">
 					<h2>Update Slate</h2>
 					<hr>
@@ -49,7 +49,7 @@
 			</section>
 		</section>
 		<section class="slateSection">
-			<a class="addSlateBtn" href="#" onclick="div_show()">Add New Slate</a>
+			<a class="addSlateBtn" href="#" onclick="div_show('backgroundSection')">Add New Slate</a>
 			<p class="slateName">Slates</p>
 			<c:forEach var="slate" items="${model.getSlates()}">
 				<div class="slateWrapper">

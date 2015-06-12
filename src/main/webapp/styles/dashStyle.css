@@ -64,6 +64,13 @@ section#hiddenFormSection {
 	margin-left: -202px;
 	font-family: 'Raleway', sans-serif
 }
+section#hiddenUpdateFormSection {
+	position: absolute;
+	left: 50%;
+	top: 17%;
+	margin-left: -202px;
+	font-family: 'Raleway', sans-serif
+}
 
 .sidebar {
 	background-color: #111b25;
@@ -170,6 +177,27 @@ section#hiddenFormSection {
 	z-index: 15;
 }
 
+#backgroundUpdateSection {
+/* 	background-color: #313131; */
+	display: none;
+	height: 100%;
+	left: 0;
+	opacity: .95;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 15;
+}
+
+#slateUpdateForm {
+	position: absolute;
+	width: auto;
+	height: auto;
+	margin: auto;
+/* 	margin-top: 150px; */
+	z-index: 15;
+}
 @media ( max-width : 1500px) {
 	.slateSection {
 		width: 60%;
